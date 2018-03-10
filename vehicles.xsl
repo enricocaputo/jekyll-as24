@@ -6,7 +6,7 @@
     <xsl:for-each select="vehicle_data/vehicles/vehicle">
       <li class="card">
         <p><a><xsl:value-of select="brand"/></a> - <xsl:value-of select="model"/> - <xsl:value-of select="version"/></p>
-        <img width="250px" src="{/stx3/vehicle_data/vehicles/vehicle/media/images/image/uri/node()}" alt=""/>
+        <xsl:apply-templates select="/stx3/vehicle_data/vehicles/vehicle/media/images/image"/>
         <p>Fuel: <xsl:value-of select="fuel_type"/></p>
         <p>Year: <xsl:value-of select="delivery/delivery_date"/></p>
         <p>Mileage: Km <xsl:value-of select="mileage"/></p>
@@ -15,5 +15,7 @@
     </xsl:for-each>
 
   </xsl:template>
-
+  <xsl:template match="image">
+    <p> <img src="{.}"/> </p>
+  </xsl:template>
 </xsl:stylesheet>
