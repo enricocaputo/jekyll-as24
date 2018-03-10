@@ -15,7 +15,7 @@
     </xsl:for-each>
 
   </xsl:template>
-  <xsl:template match="image">
+    <xsl:template match="image[position()=1]">
     <p> <img src="{.}"/> </p>
   </xsl:template>
 </xsl:stylesheet>
