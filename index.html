@@ -22,6 +22,13 @@ layout: null
   .wrapper {
     padding: 25px;
     }
+  #myInput {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    }
   ul {
     list-style:none;
   }
@@ -32,7 +39,6 @@ layout: null
     box-shadow: 2px 3px 4px #000;
   }
   </style>
-
 <script>
 function loadXMLDoc(filename)
 {
@@ -58,7 +64,7 @@ xsl = loadXMLDoc("vehicles.xsl");
 if (window.ActiveXObject || xhttp.responseType == "msxml-document")
  {
  ex = xml.transformNode(xsl);
- document.getElementById("example").innerHTML = ex;
+ document.getElementById("myUL").innerHTML = ex;
  }
 // code for Chrome, Firefox, Opera, etc.
 else if (document.implementation && document.implementation.createDocument)
@@ -66,7 +72,7 @@ else if (document.implementation && document.implementation.createDocument)
  xsltProcessor = new XSLTProcessor();
  xsltProcessor.importStylesheet(xsl);
  resultDocument = xsltProcessor.transformToFragment(xml, document);
- document.getElementById("example").appendChild(resultDocument);
+ document.getElementById("myUL").appendChild(resultDocument);
  }
 }
 </script>
@@ -75,7 +81,26 @@ else if (document.implementation && document.implementation.createDocument)
 <body onload="displayResult()">
   <div class="wrapper">
     <h1>List of cars retrived as .xml file from AutosScout24</h1>
-    <ul onload="myFunction()" id="example"></ul>
+    <input type="text" id="myInput" onkeyup="myFunction()"&#128269; placeholder="Search for brand .." title="Type in a name">
+    <ul onload="myFunction()" id="myUL"></ul>
    </div>
  </body>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
+</script>
 </html>
