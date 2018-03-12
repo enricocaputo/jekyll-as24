@@ -23,11 +23,15 @@
             187px
           </xsl:attribute>
         </img>
-        <p>Alimentazione: <xsl:value-of select="fuel_type"/> - Kw <xsl:value-of select="kilowatt"/></p>
         <p>Immatricolata: <xsl:call-template name="FormatDate">
             <xsl:with-param name="DateTime" select="initial_registration"/>
             </xsl:call-template>
            - Km <xsl:value-of select="mileage"/> </p>
+        <p>Alimentazione: <xsl:value-of select="fuel_type"/> - Kw <xsl:value-of select="kilowatt"/></p>
+        <p class="notes">Descrizione:
+          <xsl:call-template name="CarDescription">
+            <xsl:with-param name="notes" select="equipments"/>
+          </xsl:call-template>.. <a href="https://concessionari.autoscout24.it/global-srl">maggiori dettagli su AutoScout24</a></p>
       </li>
     </xsl:for-each>
   </xsl:template>
@@ -37,4 +41,10 @@
         <xsl:value-of select="substring($DateTime,1,4)" />
       </date>
     </xsl:template>
+    <xsl:template name="CarDescription">
+        <xsl:param name="notes" />
+        <date>
+          <xsl:value-of select="substring($notes,1,346)" />
+        </date>
+      </xsl:template>
 </xsl:stylesheet>

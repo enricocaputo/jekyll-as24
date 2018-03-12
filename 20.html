@@ -103,9 +103,24 @@ layout: null
     box-shadow: 0 2px 4px 0 rgba(186, 186, 186, 0.64), 0 7px 12px 0 rgba(186, 186, 186, 0.21);
   }
 
+  .notes {
+    text-align: justify;
+    line-height: 1.5;
+  }
+
+  .notes a {
+    color: dodgerBlue;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
   @media (max-width: 700px) {
       #myHeader,.btn-group {
           flex-direction: column;
+      }
+      .notes {
+        text-align: left;
       }
   }
 </style>
