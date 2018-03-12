@@ -8,7 +8,7 @@
         <p class="price"> Prezzo: € <xsl:value-of select="prices/price/value"/></p>
         <img>
           <xsl:attribute name="src">
-            <xsl:value-of select="media/images/image"/>
+            <xsl:value-of select="media/images/image/uri"/>
           </xsl:attribute>
           <xsl:attribute name="alt">
             <xsl:value-of select="brand"/> - <xsl:value-of select="model"/>
