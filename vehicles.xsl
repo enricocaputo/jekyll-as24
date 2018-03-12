@@ -5,9 +5,10 @@
       <li class="card">
         <h3><a><xsl:value-of select="brand"/></a> - <xsl:value-of select="model"/></h3>
         <p><b><xsl:value-of select="version"/></b></p>
+        <p class="price"> Prezzo: € <xsl:value-of select="prices/price/value"/></p>
         <img>
           <xsl:attribute name="src">
-            <xsl:value-of select="media/images/image/uri"/>
+            <xsl:value-of select="media/images/image"/>
           </xsl:attribute>
           <xsl:attribute name="alt">
             <xsl:value-of select="brand"/> - <xsl:value-of select="model"/>
@@ -22,12 +23,11 @@
             187px
           </xsl:attribute>
         </img>
-        <p> <xsl:value-of select="fuel_type"/> - Kw <xsl:value-of select="kilowatt"/></p>
-        <p> <xsl:call-template name="FormatDate">
+        <p>Alimentazione: <xsl:value-of select="fuel_type"/> - Kw <xsl:value-of select="kilowatt"/></p>
+        <p>Immatricolata: <xsl:call-template name="FormatDate">
             <xsl:with-param name="DateTime" select="initial_registration"/>
             </xsl:call-template>
            - Km <xsl:value-of select="mileage"/> </p>
-        <p> Price: € <xsl:value-of select="prices/price/value"/></p>
       </li>
     </xsl:for-each>
   </xsl:template>
