@@ -32,7 +32,7 @@
           <p class="notes">Descrizione:
             <xsl:call-template name="CarDescription">
               <xsl:with-param name="notes" select="equipments"/>
-            </xsl:call-template>.. <a href="https://concessionari.autoscout24.it/global-srl">maggiori dettagli su AutoScout24</a></p>
+            </xsl:call-template>.. <a href="javascript:apri('https://concessionari.autoscout24.it/global-srl')">maggiori dettagli su AutoScout24</a></p>
         </li>
     </xsl:if>
     </xsl:for-each>
