@@ -2,6 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template match="stx3">
     <xsl:for-each select="vehicle_data/vehicles/vehicle">
+    <xsl:sort select="prices/price/value" data-type="number" order="ascending"/>
       <xsl:if test="prices/price/value &gt;40000 and not(prices/price/value &gt;60000)">
         <li class="card">
           <h3><a><xsl:value-of select="brand"/></a> - <xsl:value-of select="model"/></h3>
